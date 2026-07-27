@@ -3,13 +3,13 @@ Pod::Spec.new do |s|
     s.name              = "ImageExtract"
     s.version           = "2.1.1"
     s.summary           = "A Swift library to allows you to extract the size of an image without downloading."
-    s.homepage          = "https://github.com/gumob/ImageExtract"
-    s.documentation_url = "https://gumob.github.io/ImageExtract/"
+    s.homepage          = "https://github.com/futamura/ImageExtract"
+    s.documentation_url = "https://futamura.github.io/ImageExtract/"
     s.license           = { :type => "MIT", :file => "LICENSE" }
     s.author            = { "gumob" => "hello@gumob.com" }
 
     s.module_name               = "ImageExtract"
-    s.source                    = { :git => "https://github.com/gumob/ImageExtract.git", :tag => "#{s.version}", :submodules => true }
+    s.source                    = { :git => "https://github.com/futamura/ImageExtract.git", :tag => "#{s.version}", :submodules => true }
     s.source_files              = ["Source/*.{swift}"]
     # s.public_header_files      = "Source/ImageExtract.h"
     s.private_header_files      = "Module/CWebP/CWebP-umbrella.h"

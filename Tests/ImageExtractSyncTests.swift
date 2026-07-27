@@ -41,62 +41,62 @@ final class ImageExtractSyncTests: XCTestCase {
 
     /* Large header file */
     func testLargeHeaderJPG1() {
-        let url: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-large-header-0.jpg"
+        let url: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/jpg/jpg-large-header-0.jpg"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(url.withRandomQuery())
         XCTAssertEqual(result.size, .zero)
     }
 
     func testLargeHeaderJPG2() {
-        let url: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/jpg/jpg-large-header-1.jpg"
+        let url: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/jpg/jpg-large-header-1.jpg"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(url.withRandomQuery())
         XCTAssertEqual(result.size, .zero)
     }
 
     /* Invalid byte data */
     func testInvalidBytesJPG1() {
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-jfif-end.jpg"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-jfif-end.jpg"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(request)
         XCTAssertEqual(result.size, .zero)
     }
 
     func testInvalidBytesJPG2() {
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx.jpg"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx.jpg"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(request)
         XCTAssertEqual(result.size, .zero)
     }
 
     func testInvalidBytesJPG3() {
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx-full.jpg"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx-full.jpg"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(request)
         XCTAssertEqual(result.size, .zero)
     }
 
     func testInvalidBytesWEBP1() {
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8-no-space.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8-no-space.webp"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(request)
         XCTAssertEqual(result.size, .zero)
     }
 
     func testInvalidBytesWEBP2() {
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8x-end.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8x-end.webp"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(request)
         XCTAssertEqual(result.size, .zero)
     }
 
     func testInvalidBytesWEBP3() {
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-xxxx.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-xxxx.webp"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(request)
         XCTAssertEqual(result.size, .zero)
     }
 
     func testInvalidBytesWEBP4() {
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-xxxx-vp8x.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-riff-xxxx-vp8x.webp"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(request)
         XCTAssertEqual(result.size, .zero)
     }
 
     func testInvalidBytesWEBP5() {
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-zero-byte.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-zero-byte.webp"
         let result: (size: CGSize, isFinished: Bool) = ImageExtract().extract(request)
         XCTAssertEqual(result.size, .zero)
     }

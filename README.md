@@ -1,7 +1,7 @@
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/gumob/ImageExtract)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/futamura/ImageExtract)
 [![Build Status](https://travis-ci.com/gumob/ImageExtract.svg?branch=master)](https://travis-ci.com/gumob/ImageExtract)
 [![codecov](https://codecov.io/gh/gumob/ImageExtract/branch/master/graph/badge.svg)](https://codecov.io/gh/gumob/ImageExtract)
-[![Platform](https://img.shields.io/badge/platform-ios%20|%20tvos%20|%20watchos%20|%20osx-lightgrey.svg)](https://github.com/gumob/ImageExtract)
+[![Platform](https://img.shields.io/badge/platform-ios%20|%20tvos%20|%20watchos%20|%20osx-lightgrey.svg)](https://github.com/futamura/ImageExtract)
 ![Language](https://img.shields.io/badge/Language-Swift%205.0-orange.svg)
 ![Language](https://img.shields.io/badge/Language-Swift%204.2-orange.svg)
 ![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
@@ -31,7 +31,7 @@ ImageExtract supports multiple platforms
 Add the following to your `Cartfile` and follow [these instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
 
 ```
-github "gumob/ImageExtract"
+github "futamura/ImageExtract"
 ```
 
 Do not forget to include WebP.framework. Otherwise it will fail to build the application.<br/>
@@ -54,7 +54,7 @@ pod 'ImageExtract'
 
 ## Usage
 
-Read the [usage](https://gumob.github.io/ImageExtract/usage.html) and the [API reference](https://gumob.github.io/ImageExtract/Classes/ImageExtract.html) for detailed information.
+Read the [usage](https://futamura.github.io/ImageExtract/usage.html) and the [API reference](https://futamura.github.io/ImageExtract/Classes/ImageExtract.html) for detailed information.
 
 ### Initialization
 

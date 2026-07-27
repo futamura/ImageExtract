@@ -56,7 +56,7 @@ final class ImageExtractAsyncTests: XCTestCase {
     /* Invalid byte data */
     func testInvalidBytesJPG1() {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesJPG1")
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-jfif-end.jpg"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-jfif-end.jpg"
         let extractor: ImageExtract = ImageExtract()
         extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
@@ -67,7 +67,7 @@ final class ImageExtractAsyncTests: XCTestCase {
 
     func testInvalidBytesJPG2() {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesJPG2")
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx.jpg"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx.jpg"
         let extractor: ImageExtract = ImageExtract()
         extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
@@ -78,7 +78,7 @@ final class ImageExtractAsyncTests: XCTestCase {
 
     func testInvalidBytesJPG3() {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesJPG3")
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx-full.jpg"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-xxxx-full.jpg"
         let extractor: ImageExtract = ImageExtract()
         extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
@@ -89,7 +89,7 @@ final class ImageExtractAsyncTests: XCTestCase {
 
     func testInvalidBytesWEBP1() {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesWEBP1")
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8-no-space.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8-no-space.webp"
         let extractor: ImageExtract = ImageExtract()
         extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
@@ -100,7 +100,7 @@ final class ImageExtractAsyncTests: XCTestCase {
 
     func testInvalidBytesWEBP2() {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesJPG1")
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8x-end.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-vp8x-end.webp"
         let extractor: ImageExtract = ImageExtract()
         extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
@@ -111,7 +111,7 @@ final class ImageExtractAsyncTests: XCTestCase {
 
     func testInvalidBytesWEBP3() {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesWEBP3")
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-xxxx.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-riff-webp-xxxx.webp"
         let extractor: ImageExtract = ImageExtract()
         extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
@@ -122,7 +122,7 @@ final class ImageExtractAsyncTests: XCTestCase {
 
     func testInvalidBytesWEBP4() {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesWEBP4")
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-riff-xxxx-vp8x.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-riff-xxxx-vp8x.webp"
         let extractor: ImageExtract = ImageExtract()
         extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
@@ -133,7 +133,7 @@ final class ImageExtractAsyncTests: XCTestCase {
 
     func testInvalidBytesWEBP5() {
         let exp: XCTestExpectation = expectation(description: "testInvalidBytesWEBP5")
-        let request: String = "https://raw.githubusercontent.com/gumob/ImageExtractTest/master/images/invalid_bytedata/webp-zero-byte.webp"
+        let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/webp-zero-byte.webp"
         let extractor: ImageExtract = ImageExtract()
         extractor.extract(request) { (_: String?, size: CGSize, _: Bool) in
             XCTAssertEqual(size, CGSize.zero)
