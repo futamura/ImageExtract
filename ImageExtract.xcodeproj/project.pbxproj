@@ -311,7 +311,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = Gumob;
+				ORGANIZATIONNAME = "Kojiro Futamura";
 				TargetAttributes = {
 					A7A0ECDC219EB279004FBE05 = {
 						CreatedOnToolsVersion = 10.1;
