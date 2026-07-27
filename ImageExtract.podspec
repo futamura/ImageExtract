@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
     s.homepage          = "https://github.com/futamura/ImageExtract"
     s.documentation_url = "https://futamura.github.io/ImageExtract/"
     s.license           = { :type => "MIT", :file => "LICENSE" }
-    s.author            = { "gumob" => "hello@gumob.com" }
+    s.author            = { "Kojiro Futamura" => "futamura.dev@gmail.com" }
 
     s.module_name               = "ImageExtract"
     s.source                    = { :git => "https://github.com/futamura/ImageExtract.git", :tag => "#{s.version}", :submodules => true }
