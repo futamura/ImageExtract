@@ -16,9 +16,6 @@ jobs:
   spm-test:
     name: SwiftPM (macOS)
     runs-on: macos-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - uses: actions/checkout@v5
       - name: Show Swift version
@@ -37,7 +34,7 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           files: coverage.lcov
-          use_oidc: true
+          token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
 
   xcode-test-macos:
