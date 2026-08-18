@@ -231,11 +231,11 @@ internal class ImageLoaderQueue: NSObject {
     func start() -> (size: CGSize, isFinished: Bool) {
         guard let urlRequest: URLRequest = self.request?.asURLRequest() else {
 //            return (nil, nil, ImageExtractError.invalidUrl(message: "Invalid request url."))
-            return (.zero , false)
+            return (.zero, false)
         }
         guard self._state == .ready else {
 //            return (nil, nil, ImageExtractError.requestFailure(message: "Session is already started."))
-            return (.zero , false)
+            return (.zero, false)
         }
         self.semaphore = DispatchSemaphore(value: 0)
         self.session = URLSession(configuration: self.config, delegate: self, delegateQueue: nil)

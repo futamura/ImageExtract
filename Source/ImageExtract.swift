@@ -107,8 +107,8 @@ public extension ImageExtract {
      - Returns: A tuple value including image size and task result. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
     func extract(_ request: ImageRequestConvertible,
-                        preferredWidth: CGFloat,
-                        maxHeight: CGFloat = .greatestFiniteMagnitude) -> (size: CGSize, isFinished: Bool) {
+                 preferredWidth: CGFloat,
+                 maxHeight: CGFloat = .greatestFiniteMagnitude) -> (size: CGSize, isFinished: Bool) {
         var result: (size: CGSize, isFinished: Bool) = self.extract(request)
         result.size = self.convertSize(size: result.size,
                                        preferredWidth: preferredWidth,
@@ -126,9 +126,9 @@ public extension ImageExtract {
        - completion: A handler that called when a request is completed. If the session is cancelled or fails to extract the size of an image, the value of isFinished will be false.
      */
     func extract(_ request: ImageRequestConvertible,
-                        preferredWidth: CGFloat,
-                        maxHeight: CGFloat = .greatestFiniteMagnitude,
-                        completion: @escaping (String?, CGSize, Bool) -> Void) {
+                 preferredWidth: CGFloat,
+                 maxHeight: CGFloat = .greatestFiniteMagnitude,
+                 completion: @escaping (String?, CGSize, Bool) -> Void) {
         self.extract(request) { [weak self] (url: String?, size: CGSize, isFinished: Bool) in
             guard let `self`: ImageExtract = self else { return completion(nil, CGSize.zero, isFinished) }
             let size: CGSize = self.convertSize(size: size, preferredWidth: preferredWidth, maxHeight: maxHeight)

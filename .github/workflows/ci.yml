@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  spm-test:
+    name: SwiftPM (macOS)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show Swift version
+        run: swift --version
+      - name: Run tests with coverage
+        run: swift test --enable-code-coverage
+      - name: Export coverage as lcov
+        run: |
+          BIN_PATH=$(swift build --show-bin-path)
+          XCTEST_BUNDLE=$(find "$BIN_PATH" -name '*.xctest' | head -n 1)
+          BINARY_NAME=$(basename "$XCTEST_BUNDLE" .xctest)
+          xcrun llvm-cov export "$XCTEST_BUNDLE/Contents/MacOS/$BINARY_NAME" \
+            -instr-profile "$BIN_PATH/codecov/default.profdata" \
+            -format lcov -ignore-filename-regex 'Tests/' > coverage.lcov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: coverage.lcov
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: false
+
+  xcode-test-macos:
+    name: Xcode (macOS)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project ImageExtract.xcodeproj \
+            -scheme ImageExtract-macOS \
+            -destination 'platform=macOS'
+
+  xcode-test-ios:
+    name: Xcode (iOS Simulator)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: |
+          set -o pipefail
+          DEVICE_ID=$(xcrun simctl list devices available | awk -F '[()]' '/iPhone/ { print $2; exit }')
+          xcodebuild test \
+            -project ImageExtract.xcodeproj \
+            -scheme ImageExtract-iOS \
+            -destination "id=$DEVICE_ID"
+
+  lint:
+    name: SwiftLint
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SwiftLint
+        run: brew install swiftlint
+      - name: Run SwiftLint
+        run: swiftlint --strict --quiet

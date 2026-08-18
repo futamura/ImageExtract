@@ -356,7 +356,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         /* Batch download */
         for image: DataSet.Image in self.dataSet.bmp {
             let request: String = image.url.withRandomQuery()
-            extractor.extract(request) { (url: String?, size: CGSize, isFinished: Bool) in
+            extractor.extract(request) { (_: String?, size: CGSize, isFinished: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
 
                 tprint("👎", "queueCount:", extractor.queueCount, "size", size)
@@ -394,7 +394,7 @@ final class ImageExtractAsyncTests: XCTestCase {
         /* Batch download */
         for image: DataSet.Image in self.dataSet.bmp {
             let request: String = image.url
-            extractor.extract(request) { (url: String?, size: CGSize, isFinished: Bool) in
+            extractor.extract(request) { (_: String?, size: CGSize, isFinished: Bool) in
                 if isFulfilled { return } /* If unit test is already completed, do not proceed */
 
                 /* Assert image size */
