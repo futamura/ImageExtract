@@ -1,5 +1,4 @@
 module: ImageExtract
-docset_title: ImageExtract
 
 author: Kojiro Futamura
 author_url: https://github.com/futamura
@@ -10,7 +9,7 @@ min_acl: public
 clean: true
 readme: "README.md"
 output: "docs"
-documentation: "USAGE.md"
+documentation: "./USAGE.md"
 skip_undocumented: true
 hide_documentation_coverage: true
 # theme: fullwidth
@@ -29,7 +28,7 @@ custom_categories:
   - name: Classes
     children:
       - ImageExtract
-  - name: Protocls
+  - name: Protocols
     children:
       - ImageRequestConvertible
   - name: Enumerations
