@@ -37,6 +37,10 @@ internal extension Bundle {
     }
 
     static var current: Bundle {
+        #if SWIFT_PACKAGE
+        return Bundle.module
+        #else
         return Bundle.init(for: ClassForFramework.self)
+        #endif
     }
 }
