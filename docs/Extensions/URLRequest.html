@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ImageRequestConvertible Protocol Reference</title>
+    <title>URLRequest Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/ImageRequestConvertible" class="dashAnchor"></a>
-    <a title="ImageRequestConvertible Protocol Reference"></a>
+    <a name="//apple_ref/swift/Extension/URLRequest" class="dashAnchor"></a>
+    <a title="URLRequest Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -29,9 +29,9 @@
       <p id="breadcrumbs">
         <a href="../index.html">Index</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        <a href="../Protocols.html">Protocols</a>
+        <a href="../Extensions.html">Extensions</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        ImageExtract.ImageRequestConvertible Protocol Reference
+        Foundation.URLRequest Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -83,17 +83,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>ImageRequestConvertible</h1>
+            <h1>URLRequest</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ImageRequestConvertible</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">URLRequest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a></span></code></pre>
 
                 </div>
               </div>
-            <p>A type that can be used to construct URL requests.
-<a href="https://developer.apple.com/documentation/swift/string">String</a>, <a href="https://developer.apple.com/documentation/foundation/url">URL</a>, and <a href="https://developer.apple.com/documentation/foundation/urlrequest">URLRequest</a> are conform to ImageRequestConvertible protocol.</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -111,14 +109,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convert this value into a URLRequest object.</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">asURLRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">asURLRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -138,14 +135,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convert this value into an absolute url string.</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">asURLString</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">asURLString</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>

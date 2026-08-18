@@ -24,6 +24,10 @@ xcodebuild test -project ImageExtract.xcodeproj -scheme ImageExtract-iOS -destin
 
 # Lint (CI runs this with --strict; keep it clean)
 swiftlint --strict --quiet
+
+# Regenerate API docs (published via GitHub Pages from docs/)
+jazzy
+rm -rf docs/docsets   # jazzy 0.15 emits a misnamed hidden .docset; Dash docsets are not published
 ```
 
 Integration tests (`ImageExtractSyncTests`, `ImageExtractAsyncTests`, `ImageFormatTests` invalid-byte cases) fetch real images from `raw.githubusercontent.com/futamura/ImageExtractTest` and require network access. Decoder unit tests (`ImageDecoderTests`) are offline and use hand-crafted header bytes.

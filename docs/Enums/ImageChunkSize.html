@@ -4,7 +4,7 @@
     <title>ImageChunkSize Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
@@ -13,84 +13,80 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-
     <a name="//apple_ref/swift/Enum/ImageChunkSize" class="dashAnchor"></a>
-
     <a title="ImageChunkSize Enumeration Reference"></a>
-
-    <header class="header">
-      <p class="header-col header-col--primary">
-        <a class="header-link" href="../index.html">
-          ImageExtract Docs
-        </a>
-        
-      </p>
-    
-      <p class="header-col--secondary">
-        <form role="search" action="../search.json">
-          <input type="text" placeholder="Search documentation" data-typeahead>
-        </form>
-      </p>
-    
-        <p class="header-col header-col--secondary">
-          <a class="header-link" href="https://github.com/futamura/ImageExtract">
-            <img class="header-icon" src="../img/gh.png"/>
-            View on GitHub
-          </a>
-        </p>
-    
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
     </header>
-
-    <p class="breadcrumbs">
-      <a class="breadcrumb" href="../index.html">ImageExtract Reference</a>
-      <img class="carat" src="../img/carat.png" />
-      ImageChunkSize Enumeration Reference
-    </p>
-
     <div class="content-wrapper">
-      <nav class="navigation">
+      <p id="breadcrumbs">
+        <a href="../index.html">Index</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        <a href="../Enums.html">Enumerations</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        ImageExtract.ImageChunkSize Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/ImageExtract.html">ImageExtract</a>
+                <a href="../Classes/ImageExtract.html">ImageExtract</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Protocls.html">Protocls</a>
+            <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a>
+                <a href="../Enums/ImageChunkSize.html">ImageChunkSize</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enumerations.html">Enumerations</a>
+            <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/ImageChunkSize.html">ImageChunkSize</a>
+                <a href="../Extensions.html#/c:@M@ImageExtract@objc(cs)ImageLoaderQueue">ImageLoaderQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URL.html">URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLRequest.html">URLRequest</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Guides.html">Guides</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../usage.html">USAGE</a>
+                <a href="../Protocols/ImageRequestConvertible.html">ImageRequestConvertible</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-
-        <section class="section">
-          <div class="section-content">
+        <section>
+          <section class="section">
             <h1>ImageChunkSize</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ImageChunkSize</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
@@ -99,13 +95,10 @@
 The segment of JPG format has not fixed size because it has variable meta data. So you can specify the data size to be downloaded by passing chunk size as an argument.
 In most cases, you can get the size of an image with the initial value, but if you can not get the correct size, please specify a larger chunk size.</p>
 
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-content">
+          </section>
+          <section class="section task-group-section">
             <div class="task-group">
-              <ul class="item-container">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -243,15 +236,13 @@ In most cases, you can get the size of an image with the initial value, but if y
                 </li>
               </ul>
             </div>
-          </div>
+          </section>
         </section>
-
+        <section id="footer">
+          <p>&copy; 2026 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2026-08-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
       </article>
     </div>
-    <section class="footer">
-      <p>Copyright © 2018 Gumob. All rights reserved.</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-    </section>
   </body>
-</div>
 </html>
