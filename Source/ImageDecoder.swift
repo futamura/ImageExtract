@@ -10,7 +10,6 @@ import AppKit
 import UIKit
 #endif
 import CoreGraphics
-import WebP
 
 internal class ImageDecoder {
 
@@ -164,7 +163,7 @@ internal class BMPDecoder {
 }
 
 /* TODO: Support TIFF (low priority) */
-//internal class TIFFDecoder {
+// internal class TIFFDecoder {
 //    /**
 //     private function: getSize
 //
@@ -178,7 +177,7 @@ internal class BMPDecoder {
 //    func getSize(_ data: Data, _ format: ImageFormat) -> CGSize {
 //        return .zero
 //    }
-//}
+// }
 
 internal class WEBPDecoder {
     /**
@@ -194,34 +193,30 @@ internal class WEBPDecoder {
      * https://github.com/golang/image/blob/master/vp8l/decode.go
      */
     func getSize(_ data: Data) -> CGSize {
-//        guard data.count > ImageFormat.webp.minimumLength,
-//              let size: CGSize = try? WebPDecoder.decode(data, checkStatus: false) else { return .zero }
-        guard data.count > ImageFormat.webp.minimumLength else { return .zero }
-        let options = WebPDecoderOptions()
-        let decoder = WebPDecoder()
-        guard let image: CGImage = try? decoder.decode(data, options: options) else { return .zero }
-        return CGSize(width: image.width, height: image.height)
+        guard data.count >= ImageFormat.webp.minimumLength else { return .zero }
 
-        /* The current version uses libwebp static library. */
-//        switch ImageWebPFormat(data: data) {
-//        case .vp8x:
-//            let w: UInt16 = data[24, 3]
-//            let h: UInt16 = data[27, 3]
-//            return CGSize(width: Int(w) + 1, height: Int(h) + 1)
-//
-//        case .vp8l:
-//            let w: UInt16 = data[21, 2]
-//            let h: UInt16 = data[23, 2]
-//            return CGSize(width: Int(w), height: Int(h))
-//
-//        case .vp8:
-//            let w: UInt16 = data[26, 2]
-//            let h: UInt16 = data[28, 2]
-//            return CGSize(width: Int(w), height: Int(h))
-//
-//        default:
-//            return .zero
-//
-//        }
+        switch ImageWebPFormat(data: data) {
+        case .vp8x:
+            /* 24-bit little-endian canvas size minus one, at offsets 24 (width) and 27 (height) */
+            let w: UInt32 = UInt32(data[24]) | UInt32(data[25]) << 8 | UInt32(data[26]) << 16
+            let h: UInt32 = UInt32(data[27]) | UInt32(data[28]) << 8 | UInt32(data[29]) << 16
+            return CGSize(width: Int(w) + 1, height: Int(h) + 1)
+
+        case .vp8l:
+            /* 14-bit (width - 1) and (height - 1) packed LSB first after the 0x2F signature byte */
+            let bits: UInt32 = UInt32(data[21]) | UInt32(data[22]) << 8 | UInt32(data[23]) << 16 | UInt32(data[24]) << 24
+            let w: UInt32 = (bits & 0x3FFF) + 1
+            let h: UInt32 = ((bits >> 14) & 0x3FFF) + 1
+            return CGSize(width: Int(w), height: Int(h))
+
+        case .vp8:
+            /* 14-bit width and height at offsets 26 and 28; the upper two bits are upscale flags */
+            let w: UInt16 = data[26, 2]
+            let h: UInt16 = data[28, 2]
+            return CGSize(width: Int(w & 0x3FFF), height: Int(h & 0x3FFF))
+
+        case .unsupported:
+            return .zero
+        }
     }
 }
