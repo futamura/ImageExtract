@@ -3,7 +3,7 @@
 [![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg)](https://swift.org/package-manager/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/futamura/ImageExtract)
 [![Platform](https://img.shields.io/badge/platform-ios%20|%20macos-lightgrey.svg)](https://github.com/futamura/ImageExtract)
-![Language](https://img.shields.io/badge/Language-Swift%205-orange.svg)
+![Language](https://img.shields.io/badge/Language-Swift%205.9%2B-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 # ImageExtract
