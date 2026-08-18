@@ -17,7 +17,7 @@ jobs:
     name: SwiftPM (macOS)
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Show Swift version
         run: swift --version
       - name: Run tests with coverage
@@ -41,7 +41,7 @@ jobs:
     name: Xcode (macOS)
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run tests
         run: |
           set -o pipefail
@@ -54,7 +54,7 @@ jobs:
     name: Xcode (iOS Simulator)
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run tests
         run: |
           set -o pipefail
@@ -68,7 +68,7 @@ jobs:
     name: SwiftLint
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install SwiftLint
         run: brew install swiftlint
       - name: Run SwiftLint
