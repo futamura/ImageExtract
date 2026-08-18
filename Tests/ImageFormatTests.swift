@@ -31,6 +31,17 @@ class ImageFormatTests: XCTestCase {
         XCTAssertEqual(webpFormat2, ImageWebPFormat.unsupported)
     }
 
+    /* Header meta bytes that are not valid ASCII must be reported as unsupported, not crash */
+    func testNonASCIIMetaBytes() {
+        let jpgBytes: [UInt8] = [0xFF, 0xD8, 0xFF, 0xE0, 0x00, 0x10, 0xFF, 0xFE, 0xFD, 0xFC]
+        let jpgFormat: ImageJPGFormat = ImageJPGFormat(data: Data(jpgBytes))
+        XCTAssertEqual(jpgFormat, ImageJPGFormat.unsupported)
+
+        let webpBytes: [UInt8] = Array("RIFF".utf8) + [0, 0, 0, 0] + Array("WEBP".utf8) + [0xFF, 0xFE, 0xFD, 0xFC]
+        let webpFormat: ImageWebPFormat = ImageWebPFormat(data: Data(webpBytes))
+        XCTAssertEqual(webpFormat, ImageWebPFormat.unsupported)
+    }
+
     /* Invalid byte data */
     func testInvalidBytesJPG1() {
         let request: String = "https://raw.githubusercontent.com/futamura/ImageExtractTest/master/images/invalid_bytedata/jpg-ffd8-jfif-end.jpg"

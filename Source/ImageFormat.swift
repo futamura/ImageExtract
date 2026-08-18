@@ -64,7 +64,7 @@ enum ImageJPGFormat {
         }
         self = .unsupported
         let bytes: Data = data[6..<10]
-        let meta: String = String(data: bytes, encoding: .ascii)!.uppercased()
+        guard let meta: String = String(data: bytes, encoding: .ascii)?.uppercased() else { return }
         switch meta {
         case "EXIF": self = .exif
         case "JFIF": self = .jfif
@@ -86,7 +86,7 @@ enum ImageWebPFormat {
         }
         self = .unsupported
         let bytes: Data = data[12..<16]
-        let meta: String = String(data: bytes, encoding: .ascii)!.uppercased().replacingOccurrences(of: " ", with: "")
+        guard let meta: String = String(data: bytes, encoding: .ascii)?.uppercased().replacingOccurrences(of: " ", with: "") else { return }
         switch meta {
         case "VP8X": self = .vp8x
         case "VP8L": self = .vp8l
