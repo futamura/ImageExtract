@@ -1,19 +1,19 @@
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/futamura/ImageExtract)
+[![CI](https://github.com/futamura/ImageExtract/actions/workflows/ci.yml/badge.svg)](https://github.com/futamura/ImageExtract/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/futamura/ImageExtract/branch/master/graph/badge.svg)](https://codecov.io/gh/futamura/ImageExtract)
-[![Platform](https://img.shields.io/badge/platform-ios%20|%20tvos%20|%20watchos%20|%20osx-lightgrey.svg)](https://github.com/futamura/ImageExtract)
-![Language](https://img.shields.io/badge/Language-Swift%205.0-orange.svg)
-![Language](https://img.shields.io/badge/Language-Swift%204.2-orange.svg)
-![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
+[![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg)](https://swift.org/package-manager/)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/futamura/ImageExtract)
+[![Platform](https://img.shields.io/badge/platform-ios%20|%20macos-lightgrey.svg)](https://github.com/futamura/ImageExtract)
+![Language](https://img.shields.io/badge/Language-Swift%205-orange.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 # ImageExtract
 A Swift library to allows you to extract the size of an image without downloading.
 
 ## Requirements
 
-ImageExtract supports multiple platforms
-- iOS 10.0 or later
-- macOS 10.11 or later
-- Swift 5.0 or later
+- iOS 15.0 or later
+- macOS 12.0 or later
+- Swift 5.9 or later (Xcode 15 or later)
 
 ## Supported image format
 
@@ -23,7 +23,25 @@ ImageExtract supports multiple platforms
 - BMP
 - WebP
 
+All formats including WebP are decoded by parsing the image header directly. No external dependencies are required.
+
 ## Installation
+
+### Swift Package Manager
+
+In Xcode, choose File > Add Package Dependencies… and enter:
+
+```
+https://github.com/futamura/ImageExtract.git
+```
+
+Or add the following to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/futamura/ImageExtract.git", from: "3.0.0")
+]
+```
 
 ### Carthage
 
@@ -32,24 +50,6 @@ Add the following to your `Cartfile` and follow [these instructions](https://git
 ```
 github "futamura/ImageExtract"
 ```
-
-Do not forget to include WebP.framework. Otherwise it will fail to build the application.<br/>
-
-<img src="Metadata/carthage-xcode-config.jpg" alt="drawing" width="480" style="width:100%; max-width: 480px;"/>
-
-
-<!--
-### CocoaPods
-
-To integrate ImageExtract into your project, add the following to your `Podfile`.
-
-```ruby
-platform :ios, '10.0'
-use_frameworks!
-
-pod 'ImageExtract'
-```
--->
 
 ## Usage
 
@@ -76,7 +76,7 @@ Get the size of an image asynchronously:
 ```swift
 let url: String = "https://example.com/image.jpg"
 let extractor: ImageExtract = ImageExtract()
-extractor.extract(request) { (url: String?, size: CGSize, isFinished: Bool) in
+extractor.extract(url) { (url: String?, size: CGSize, isFinished: Bool) in
     print(size) // (800.0, 600.0)
 }
 ```
